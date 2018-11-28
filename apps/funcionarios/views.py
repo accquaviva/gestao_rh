@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import UpdateView, DeleteView
+from django.views.generic import UpdateView, DeleteView, CreateView
 
 from apps.funcionarios.models import Funcionario
 from django.views.generic.list import ListView
@@ -20,8 +20,14 @@ class FuncionarioEdit(UpdateView):
     fields = ['nome','departamentos']
 
 
+
 class FuncionarioDelete(DeleteView):
     model = Funcionario
     success_url = reverse_lazy('list_funcionarios')
+
+
+class FuncionarioNovo(CreateView):
+    model = Funcionario
+    fields = ['nome','user','departamentos','empresa']
 
 

@@ -7,9 +7,9 @@ from apps.empresas.models import Empresa
 
 
 class Funcionario(models.Model):
-    nome = models.CharField(max_length=100)
+    nome = models.CharField(max_length=100,verbose_name= ('Nome Funcionario'))
     user = models.OneToOneField(User,on_delete=models.PROTECT)
-    departamentos = models.ManyToManyField(Departamento)
+    departamentos = models.ManyToManyField(Departamento,verbose_name=('Departamento'))
     empresa = models.ForeignKey(Empresa, on_delete=models.PROTECT)
 
     def get_absolute_url(self):
