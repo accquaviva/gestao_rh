@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.urls import reverse_lazy
@@ -28,6 +29,13 @@ class FuncionarioDelete(DeleteView):
 
 class FuncionarioNovo(CreateView):
     model = Funcionario
-    fields = ['nome','user','departamentos','empresa']
+    fields = ['nome','departamentos']
 
+    def form_valid(self, form):
+        funcionario = form.save(commit=False)
+        username = funcionario.nome.split(' ')[0] + funcionario.nome.split()[1]
+        funcionario.empresa = self.request.user.funcionario.empresa
+        funcionario.user = User.objects.create(username=username)
+        funcionario.save()
 
+        return super(FuncionarioNovo,self).form_valid(form)
