@@ -2,7 +2,7 @@
 
 {% block main %}
     {% for funcionario in object_list %}
-        <li>{{ funcionario }}</li>
+        <li>{{ funcionario }} {{ funcionario.empresa }}</li>
     {% endfor %}
     
 {% endblock %}
