@@ -2,7 +2,9 @@
 
 {% block main %}
     {% for funcionario in object_list %}
-        <li>{{ funcionario }} {{ funcionario.empresa }}</li>
+        <a href="{% url 'update_funcionario' funcionario.id %}">>
+            {{ funcionario }}
+        </a> </br>
     {% endfor %}
     
 {% endblock %}
