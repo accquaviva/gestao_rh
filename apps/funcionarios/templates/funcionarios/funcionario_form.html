@@ -7,9 +7,12 @@
         {{ form.as_p }}
         <button class="btn btn-primary" type="submit">Salvar</button>
     </form>
+    <br>
 
-    {{ object }}
-    <a href="{% url 'create_documento' object.id %}">
-        Novo Documento
-    </a>
+    {% if object.id %}
+        <a href="{% url 'create_documento' object.id %}">
+            Novo Documento
+        </a>
+    {% endif %}
+
 {% endblock %}
