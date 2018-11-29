@@ -3,7 +3,7 @@
 {% block main %}
         <div class="row">
             <div class="col-sm">
-                coluna 1
+                <a href="{% url 'Lista_Departamento' %}">Departamentos</a>
             </div>
             <div class="col-sm">
                 {{ usuario.funcionario.nome }}
@@ -17,5 +17,6 @@
                     <a href="">Criar Empresa</a>
                 {% endif %}
             </div>
+
         </div>
 {% endblock %}

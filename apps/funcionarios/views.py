@@ -39,3 +39,4 @@ class FuncionarioNovo(CreateView):
         funcionario.save()
 
         return super(FuncionarioNovo,self).form_valid(form)
+
