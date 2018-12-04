@@ -12,3 +12,5 @@ class RegistroHoraExtra(models.Model):
 
     def get_absolute_url(self):
         return reverse('lista_hora_extra')
+
+
