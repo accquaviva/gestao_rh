@@ -1,0 +1,10 @@
+{% for hora_extra in object_list %}
+
+    <a href="{% url 'edit_hora_extra' hora_extra.id %}">
+        <td>
+            {{ hora_extra }}
+        </td>
+        <button href="{% url 'delete_hora_extra' hora_extra.id %}" type="submit">EXCLUIR</button>
+    </a>
+    <br>
+{% endfor %}
